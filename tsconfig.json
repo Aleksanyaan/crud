@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+      "strict": true,
+      "module": "CommonJS",
+      "target": "ES2016",
+      "outDir": "dist",
+      "rootDir": "",
+      "esModuleInterop": true,
+      // "strictPropertyInitialization": true
+  },
+  "exclude": ["node_modules"]
+}

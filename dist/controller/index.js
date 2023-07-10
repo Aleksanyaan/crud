@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.deleteUsers = exports.readUsers = exports.createUser = void 0;
+const create_user_1 = require("./create.user");
+const index_1 = require("../services/index");
+const read_user_1 = require("./read.user");
+const delete_user_1 = require("./delete.user");
+exports.createUser = new create_user_1.CreateUser(index_1.userService);
+exports.readUsers = new read_user_1.ReadUsers();
+exports.deleteUsers = new delete_user_1.DeleteUsers();
