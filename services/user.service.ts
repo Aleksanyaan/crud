@@ -15,8 +15,8 @@ interface IUserService {
 const users: IUser[] = [];
 
 export class UserService implements IUserService{
-    createUser(userPayLoad: Omit<IUser, 'id' | 'status' | 'creationTime'>): IUser {
-        const {name, age, gender, modifictionTime} = userPayLoad;
+    createUser(userPayLoad: Omit<IUser, 'id' | 'status' | 'creationTime' | 'modifictionTime'>): IUser {
+        const {name, age, gender} = userPayLoad;
 
         const user = {
             id: Math.floor(Math.random() * 1000).toString(),
@@ -25,7 +25,7 @@ export class UserService implements IUserService{
             gender,
             status: false,
             creationTime: new Date().toISOString(),
-            modifictionTime,
+            modifictionTime: null,
         };
 
         users.push(user);

@@ -2,7 +2,6 @@ import { UserService } from "../services/user.service";
 import { Request, Response, NextFunction } from 'express';
 import { readWriteUsers } from "../src/index";
 
-
 export class CreateUser {
     constructor(private userService: UserService) {}
 
@@ -14,7 +13,7 @@ export class CreateUser {
             const users = readWriteUsers.readUsers();
             users.push(result);
             readWriteUsers.writeUsers(users);
-          res.status(201).send(result);
+          res.status(201).send(`User created: ${JSON.stringify(result)}`);
 
         } catch (err) {
           res.status(500).json({ error: (err as Error).message });

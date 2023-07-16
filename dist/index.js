@@ -17,7 +17,7 @@ const validateApiKey = (req, res, next) => {
     }
 };
 app.use('/users', validateApiKey, user_router_1.userRouter);
-app.use('/users/', validateApiKey, user_router_1.userRouter);
+app.use('/users/:id', validateApiKey, user_router_1.userRouter);
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Our server is listening on port ${port}`);

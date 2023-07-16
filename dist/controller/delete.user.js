@@ -4,14 +4,11 @@ exports.DeleteUsers = void 0;
 const index_1 = require("../src/index");
 class DeleteUsers {
     delete(req, res, next) {
-        let id;
-        if (req.url.startsWith('/users/')) {
-            id = req.url.split('/')[2];
-        }
+        const { id } = req.params;
         const users = index_1.readWriteUsers.readUsers();
         const userIndex = users.findIndex((u) => u.id === id);
         if (userIndex === -1) {
-            res.status(404).json({ error: 'User not found' });
+            res.status(404).send({ error: 'User not found' });
         }
         else {
             users.splice(userIndex, 1);

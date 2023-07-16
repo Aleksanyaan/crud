@@ -1,8 +1,6 @@
 import express from "express";
 import { Request, Response, NextFunction } from 'express';
-import { createUser, deleteUsers } from "../controller/index";
-import { readUsers } from "../controller/index";
-
+import { createUser, readUsers, deleteUser, updateUser, activateUser } from "../controller/index";
 
 const userRouter = express.Router();
 
@@ -10,6 +8,10 @@ userRouter.post('/', (req: Request, res: Response, next: NextFunction) => create
 
 userRouter.get('/', (req: Request, res: Response, next: NextFunction) => readUsers.read(req, res, next));
 
-userRouter.delete('/', (req: Request, res: Response, next: NextFunction) => deleteUsers.delete(req, res, next));
+userRouter.delete('/:id', (req: Request, res: Response, next: NextFunction) => deleteUser.delete(req, res, next));
+
+userRouter.put('/:id', (req: Request, res: Response, next: NextFunction) => updateUser.update(req, res, next));
+
+userRouter.patch('/:id/activate', (req: Request, res: Response, next: NextFunction) => activateUser.activate(req, res, next));
 
 export { userRouter };
